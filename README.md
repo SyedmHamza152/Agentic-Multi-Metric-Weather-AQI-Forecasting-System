@@ -51,9 +51,4 @@ Tests use fake API responses, so they need no keys and no internet.
 | `aqicn_air.csv` | AQICN | AQI (our AQI target), pollutants, station info |
 | `aqicn_forecast.csv` | AQICN | daily forecast per pollutant (including UV) |
 
-## Data limits
 
-- **AQICN** has no history through its API. History builds up by running `--mode current` on a schedule.
-- **OpenWeather air pollution history** is free and starts 27 Nov 2020.
-- **UV index and weather history** need the One Call 3.0 subscription (1,000 free calls/day). Historical UV goes back 5 days only.
-- AQICN uses the station nearest to the coordinates. Check `station_name` in `aqicn_air.csv`, and pin a station with `aqicn.station_id` in `config/settings.yaml` if needed.
