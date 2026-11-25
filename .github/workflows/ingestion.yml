@@ -37,6 +37,17 @@ jobs:
           LOG_LEVEL: INFO
         run: python -m agentweather.pipelines.ingestion_pipeline --mode current
 
+      - name: Run ingestion (recent history, incl. OpenAQ)
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          AQICN_API_TOKEN: ${{ secrets.AQICN_API_TOKEN }}
+          OPENAQ_API_KEY: ${{ secrets.OPENAQ_API_KEY }}
+          LOG_LEVEL: INFO
+        # OpenAQ only exposes historical measurements, so we re-fetch the last
+        # few days every hour; the store deduplicates, so this just tops up
+        # each station's latest data. OpenWeather air history is refreshed too.
+        run: python -m agentweather.pipelines.ingestion_pipeline --mode historical --days 3
+
       - name: Commit updated CSVs
         run: |
           git config user.name "github-actions[bot]"
