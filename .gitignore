@@ -1,0 +1,26 @@
+# Secrets - never commit these
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Project runtime files
+logs/*
+!logs/.gitkeep
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Tools
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/

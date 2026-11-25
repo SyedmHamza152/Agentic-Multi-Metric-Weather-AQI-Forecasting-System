@@ -1,0 +1,45 @@
+# Non-secret settings. API keys live in the .env file, NOT here.
+
+city:
+  name: Lahore
+  country: PK
+  latitude: 31.5204
+  longitude: 74.3587
+  timezone: Asia/Karachi
+
+openweather:
+  base_url: https://api.openweathermap.org
+  timeout_seconds: 10
+  max_retries: 3
+  units: metric          # metric = Celsius, m/s
+  use_onecall: true      # needed for UV index (One Call 3.0 subscription)
+
+aqicn:
+  base_url: https://api.waqi.info
+  timeout_seconds: 10
+  max_retries: 3
+  station_id: null       # optional: pin a station id (e.g. 1234) instead of "nearest to lat/lon"
+
+openaq:                  # OpenAQ v3: historical air quality measurements
+  base_url: https://api.openaq.org/v3
+  timeout_seconds: 30
+  max_retries: 3
+  search_radius_m: 25000 # how far from the city to look for monitoring locations (API max)
+  page_limit: 1000       # measurements per API page (API max)
+  chunk_days: 31         # fetch measurements in ~monthly chunks
+  max_locations: 3       # keep the best-covered stations near the city
+
+storage:
+  backend: csv           # "csv" now, "hopsworks" in a later phase
+  raw_dir: data/raw
+  processed_dir: data/processed
+
+targets:                 # the six metrics we will forecast
+  - aqi
+  - temperature
+  - precipitation
+  - humidity
+  - uv_index
+  - wind
+
+log_level: INFO

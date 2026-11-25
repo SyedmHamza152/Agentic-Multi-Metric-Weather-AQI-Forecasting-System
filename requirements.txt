@@ -1,0 +1,5 @@
+# Phase 1 runtime dependencies (later phases will add more)
+requests>=2.31
+pandas>=2.0
+PyYAML>=6.0
+python-dotenv>=1.0
