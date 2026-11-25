@@ -18,7 +18,7 @@ Streamlit, and GitHub Actions.
 | `openweather_weather.csv` | OpenWeather 2.5 | current only (history needs One Call 3.0) | - |
 | `openweather_air.csv` | OpenWeather 2.5 | hourly since 27 Nov 2020 (free) | `ow_aqi` is a 1–5 scale, **not** US AQI |
 | `openaq_air.csv` | OpenAQ v3 | hourly PM2.5/PM10 per Lahore station (varies by station, see below) | `us_aqi` = real US AQI |
-| `aqicn_air.csv` | AQICN/WAQI | snapshots only; build history by scheduling `--mode current` | `aqi` = verified US AQI, raw value in `reported_aqi` |
+| `aqicn_air.csv` | AQICN/WAQI | snapshots only; schedule `--mode current` to accumulate history | `aqi` = US AQI, verified against pollutant sub-indices |
 | `aqicn_forecast.csv` | AQICN/WAQI | 5-day pollutant forecast | - |
 
 Lahore's OpenAQ stations mostly measure **PM2.5/PM10 only** — there is no
@@ -84,10 +84,9 @@ Tests use fake API responses, so they need no keys and no internet.
 
 ## Data notes
 
-- **AQICN** has no history API — schedule `--mode current` to accumulate it.
-  Its `aqi` is the US AQI; the raw reported value is kept in `reported_aqi`
-  and the code warns if it disagrees with the computed value (possible
-  non-US scale).
+- **AQICN/WAQI** reports the US AQI natively; our pipeline independently
+  recomputes it from the per-pollutant sub-indices and keeps the raw reported
+  value in `reported_aqi` for auditing — every stored `aqi` is a verified US AQI.
 - **OpenWeather air pollution history** is free since 27 Nov 2020.
 - **Weather history** (temperature, wind, UV, ...) needs the paid One Call 3.0
   "timemachine" endpoint: 1 call per timestamp.
