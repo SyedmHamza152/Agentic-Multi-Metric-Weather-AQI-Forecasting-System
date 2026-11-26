@@ -1,2 +1,3 @@
 timestamp_utc,city,latitude,longitude,station_id,station_name,station_lat,station_lon,aqi,reported_aqi,aqi_pollutant,dominant_pollutant,pm25,pm10,o3,no2,so2,co,temperature_c,humidity_pct,pressure_hpa,wind_speed_ms,source,ingested_at_utc
 2026-11-25T20:00:00Z,Lahore,31.5204,74.3587,11321,"Golden Temple, Amritsar, India",31.62,74.876512,164,164.0,pm25,pm25,164.0,121.0,5.5,11.9,13.1,10.1,15.0,76.0,1018.0,0.5,aqicn_feed,2026-11-25T20:36:30Z
+2026-11-26T03:00:00Z,Lahore,31.5204,74.3587,11321,"Golden Temple, Amritsar, India",31.62,74.876512,165,165.0,pm25,pm25,165.0,122.0,5.8,15.0,8.5,6.5,11.0,93.0,1017.0,1.5,aqicn_feed,2026-11-26T02:48:29Z
