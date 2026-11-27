@@ -5,3 +5,4 @@ timestamp_utc,city,latitude,longitude,temperature_c,humidity_pct,wind_speed_ms,w
 2026-11-26T22:15:47Z,Lahore,31.5204,74.3587,13.99,82.0,0.0,0.0,0.0,,1018.0,0.0,smoke,openweather_current,2026-11-26T22:15:47Z
 2026-11-27T04:56:21Z,Lahore,31.5204,74.3587,14.99,82.0,1.03,200.0,0.0,,1021.0,0.0,mist,openweather_current,2026-11-27T04:56:21Z
 2026-11-27T14:55:58Z,Lahore,31.5204,74.3587,19.99,60.0,0.0,0.0,0.0,,1020.0,0.0,smoke,openweather_current,2026-11-27T14:55:58Z
+2026-11-27T23:23:14Z,Lahore,31.5204,74.3587,13.99,88.0,0.0,0.0,0.0,,1020.0,0.0,mist,openweather_current,2026-11-27T23:23:14Z
